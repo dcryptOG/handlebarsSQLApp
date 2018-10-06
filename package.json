@@ -1,5 +1,5 @@
 {
-  "name": "handlebarsBurgerApp",
+  "name": "handlebarsSQLApp",
   "version": "1.0.0",
   "description": "In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.",
   "main": "server.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dcryptOG/hadlebarsBurgerApp.git"
+    "url": "git+https://github.com/dcryptOG/handlebarsSQLApp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dcryptOG/hadlebarsBurgerApp/issues"
+    "url": "https://github.com/dcryptOG/handlebarsSQLApp/issues"
   },
-  "homepage": "https://github.com/dcryptOG/hadlebarsBurgerApp#readme",
+  "homepage": "https://github.com/dcryptOG/handlebarsSQLApp#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
