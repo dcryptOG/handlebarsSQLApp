@@ -1,0 +1,50 @@
+<section id='top' class='flex-container'>
+  <header class='flex-container'>
+    <nav>
+      <a id='title' href="home.html">&#x1F354; Handlebars Burger App &#x1F354;</a>
+    </nav>
+  </header>
+</section>
+<span class='topPad'><a href="" id='topScroll'>Top Pad</a></span>
+
+<section class='content'>
+  <div class='content' id='content'>
+    <div id='allBurger'>
+      <div id='burgerList' class='burgerList'>
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <p class='burgerListI' id='burgerListI' data-id="{{id}}">
+              {{burger_name}}
+              <button id='eat' class='eat button' data-id="{{id}}">Eat &#x1F354;!</button>
+            </p>
+          {{/unless}}
+        {{/each}}
+      </div>
+
+      <div id='burgerDevoured' class='burgerList'>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <p class='burgerListI' id='burgerDevouredI' data-id="{{id}}">
+              {{burger_name}} <button id='del' class='del button' data-id="{{id}}">Delete &#x1F354;!</button>
+            </p>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class='flex-container' id='addBox'>
+      <input type="text" id='newBurger' placeholder="Add a Burger">
+      <div class='padSm'></div>
+      <button type="submit" id='add'>Add a &#x1F354; Bro</button>
+    </div>
+  </div>
+</section>
+
+<section id='footer'>
+  <footer class="footer">
+    <nav class='footNav'>
+      <a href='#topScroll' class='footLink'>Back to Top</a>
+      <a href='#' class='footLink'>&copy;</a>
+    </nav>
+  </footer>
+</section>

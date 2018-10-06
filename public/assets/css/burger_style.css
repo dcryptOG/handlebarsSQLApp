@@ -1,0 +1,434 @@
+/* GLOBALS ======================================================================================== */
+
+:root {
+    /* declare variables here... on :root pseudo-class */
+    /* colours */
+    --color-grey: rgba(220, 231, 235, 1);
+    --color-semi-black: rgba(48, 69, 92, 0.5);
+    --color-black: rgba(48, 69, 92, 1);
+    --color-white: rgba(255, 255, 255, 1);
+    --color-red: rgba(255, 104, 115, 1);
+    --color-blue: rgba(34, 190, 198, 1);
+    /* fonts */
+    --font-main: 'Josefin Sans', sans-serif;
+    --font-heading: 'Lobster', cursive;
+    /* font-sizes */
+    --size-normal: 1rem;
+    --size-mid: 1.5rem;
+    --size-big: 2rem;
+    --size-title: 3.5rem;
+    /* font-weights */
+    --weight-normal: 500;
+    --weight-bold: 700;
+    /* padings */
+    --padSmall: 1vh 1vw;
+    --padMed: 2vh 2vw;
+    --padLarge: 3vh 3vw;
+    /* borders */
+    --borderSm: 0.05rem;
+    --borderMed: 0.1rem;
+    --borderLarge: 0.5rem;
+    --borderXLarge: 1rem;
+}
+
+html {
+    /* make sure we use up the whole viewport */
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+    font-family: var(--font-main);
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+@media screen and (max-width: 400px) {
+    :root {
+        --size-normal: 2vw;
+        --size-mid: 3vw;
+        --size-big: 4vw;
+        --size-title: 6.5vw;
+    }
+    html {
+        font-size: 2vw;
+    }
+}
+
+/* LAYOUT ================================================================ */
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-self: auto;
+    justify-self: auto;
+    margin: auto;
+    background: url(../img/burgersbg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-position: 0vw 0vw;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: repeat-x;
+    animation: animatedBackground 40s linear infinite;
+}
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100vw 0;
+    }
+}
+
+/*PAGE LAYOUT====================================================================================================== */
+
+.content {
+    flex: 1 0 auto;
+    width: 100vw;
+    display: flex;
+    flex-flow: column wrap;
+    word-break: break-word;
+    justify-self: center;
+    align-content: center;
+    hyphens: auto;
+    margin: auto;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    padding: 0;
+}
+
+#content {
+    padding: 2vh 2vw;
+    margin: 5vh auto;
+}
+
+#content:nth-child(n) {
+    overflow: auto;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    padding: 1vh 1vw;
+}
+
+.pad {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 3vh auto;
+}
+
+.padSm {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 1vh auto;
+}
+
+.flex-container {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+}
+
+/* FIXED TOP BAR======================================================================================== */
+
+#top {
+    display: flex;
+    position: fixed;
+    top: 0;
+}
+
+#top>header {
+    position: fixed;
+    padding: 0.5rem;
+    top: 0;
+    width: 100vw;
+    border-bottom: 0.1vh solid rgba(245, 245, 245, 0.8);
+    display: inline-flex;
+    flex-flow: row wrap;
+    margin: auto;
+    word-break: none;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, rgb(224, 44, 44) 0%, rgb(224, 71, 44) 19%, rgb(224, 221, 44) 40%, rgb(224, 71, 44) 83%, rgb(224, 44, 44) 100%);
+    text-align: center;
+}
+
+#top>header>nav {
+    width: 100vw;
+    margin: auto;
+}
+
+#top>header>nav>a {
+    text-align: left;
+    font-size: var(--size-title);
+}
+
+.topPad {
+    display: flex;
+    margin: auto;
+}
+
+/* CONTENT GLOBALS & ELEMS========================================= */
+
+p::selection {
+    color: whitesmoke;
+    background: black;
+}
+
+a::selection {
+    color: whitesmoke;
+    background: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Lobster', cursive;
+}
+
+picture {
+    display: flex;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-grow: 1;
+    max-height: 30vw;
+    max-width: 30vw;
+    margin: 0 auto;
+    border-radius: 1em;
+}
+
+picture>img {
+    display: flex;
+    margin: 0;
+    max-height: 25vw;
+    max-width: 25vw;
+    padding: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    box-sizing: border-box;
+    object-fit: contain;
+    border-radius: 1em;
+}
+
+/* CONTENT================================================ */
+
+#allBurger {
+    display: flex;
+    margin: auto;
+    text-align: left;
+    justify-content: space-between;
+    background: 0.05rem solid rgba(245, 245, 245, 0.6);
+    border-radius: 1em;
+}
+
+#content>.flex-container>p {
+    background: rgba(229, 57, 53, 0.8);
+    display: flex;
+    flex-flow: row wrap;
+    width: 80vw;
+    text-align: center;
+    border: 0.05rem solid rgba(245, 245, 245, 0.2);
+    border-radius: 0.1rem;
+    padding: 0.1rem;
+}
+
+#addBox {
+    object-fit: contain;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: var(--padSmall);
+    overflow: hidden;
+    box-sizing: border-box;
+    /* border-radius: 1em; */
+}
+
+#newBurger {
+    display: flex;
+    margin: auto;
+    font-size: var(--size-mid);
+    text-align: center;
+}
+
+#add {
+    font-family: var(--font-main);
+    font-size: var(--size-big);
+    background: rgba(229, 57, 53, 0.9);
+    border: var(--borderSm) solid black;
+    display: flex;
+    margin: auto;
+    cursor: pointer;
+    padding: var(--padSmall);
+    /* flex-grow: 1; */
+    overflow: hidden;
+    /* box-sizing: border-box; */
+    border-radius: var(--borderMed);
+}
+
+.burgerList {
+    display: flex;
+    margin: 0 1vw;
+    flex-flow: column wrap;
+}
+
+.burgerListI {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: var(--padSmall);
+    border-radius: var(--borderSm);
+    background: linear-gradient(to right, rgba(224, 44, 44, 0.7) 0%, rgba(224, 71, 44, 0.7) 19%, rgba(224, 221, 44, 0.7) 40%, rgba(224, 71, 44, 0.7) 83%, rgba(224, 44, 44, 0.7) 100%);
+}
+
+.button {
+    justify-content: flex-end;
+    padding: var(--padSmall);
+    background: rgba(238, 1, 1, 0.2);
+    object-fit: fill;
+    margin: auto 1vw;
+    border: var(--borderSm) solid black;
+    border-radius: var(--borderSm);
+    font-family: var(--font-main);
+    font-size: var(--size-normal);
+    cursor: pointer;
+    font-weight: var(--borderLarge);
+}
+
+.flex-container>button {
+    border: 0;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font-weight: bold;
+    margin: auto;
+}
+
+/* ============================================== */
+
+table {
+    width: 90vw;
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+thead,
+tr {
+    width: inherit;
+}
+
+thead,
+tr,
+th,
+    {
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+tbody,
+tr {
+    width: inherit;
+}
+
+tbody,
+tr,
+td,
+    {
+    margin: 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+th,
+td {
+    width: 14vw;
+}
+
+/* ============================================================ */
+
+.footer {
+    flex-shrink: 0;
+    display: flex;
+}
+
+footer {
+    display: flex;
+    flex-shrink: 0;
+    background: rgba(229, 57, 53, 0.8);
+    border-top: 0.1vh solid rgba(245, 245, 245, 0.8);
+}
+
+.footNav {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-flow: column wrap;
+    margin: auto;
+    text-align: center;
+}
+
+.footLink {
+    margin: 0.2rem;
+}
+
+.footLink:last-child {
+    border-radius: 50%;
+    font-family: inherit;
+    padding: 1vh;
+    border: 0.1rem solid whitesmoke;
+    font-size: 0.6rem;
+    color: whitesmoke;
+}
+
+.footLink:nth-child(1) {
+    font-size: var(--size-big);
+    border: transparent;
+    display: flex;
+    flex-grow: 0.4;
+    border-radius: 0.1rem;
+}
+
+.footLink:nth-child(1):hover {
+    border: 0.1rem solid black;
+}
+
+.footLink:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+
+/* =================================================================== */
+
+#top>header,
+.burgerListI {
+    background-size: 100%;
+    animation: bg 9s linear infinite;
+    transition: opacity 0.3s ease-out;
+}
+
+@keyframes bg {
+    0% {
+        background-position-x: 0vw;
+    }
+    100% {
+        background-position-x: 100vw;
+    }
+    0% {
+        background-position-x: 0vw;
+    }
+}
